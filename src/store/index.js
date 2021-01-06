@@ -4,11 +4,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  //定义全局参数
+
   state: {
     token: '',
     userInfo: JSON.parse(sessionStorage.getItem("userInfo"))
   },
   mutations: {
+    //初始化并存储token以及userInfo
+
     // set
     SET_TOKEN: (state, token) => {
       state.token = token
@@ -18,6 +22,8 @@ export default new Vuex.Store({
       state.userInfo = userInfo
       sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
     },
+    //删除token及userInfo
+
     REMOVE_INFO: (state) => {
       state.token = ''
       state.userInfo = {}
@@ -27,9 +33,11 @@ export default new Vuex.Store({
 
   },
   getters: {
-    // get
-    getUser: state => {
+    getUserInfo:state => {
       return state.userInfo
+    },
+    getToken:state => {
+      return state.token
     }
 
   },

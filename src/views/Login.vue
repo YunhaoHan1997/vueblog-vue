@@ -62,7 +62,8 @@
               _this.$store.commit("SET_USERINFO", userInfo)
 
               // 获取
-              console.log(_this.$store.getters.getUser)
+              console.log(_this.$store.getters.getToken)
+              console.log(_this.$store.getters.getUserInfo)
 
               _this.$router.push("/blogs")
             })
